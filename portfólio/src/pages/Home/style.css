@@ -1,0 +1,131 @@
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #1c1c1c;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s;
+}
+
+section {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: 400px;
+  padding: 70px 20vw;
+}
+
+.home-div {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+}
+
+.home-div .infos{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.infos p{
+  color: #ffffff;
+  font-size: 1.2rem;
+  margin: 10px 0;
+}
+
+.infos span{
+  color: #00FFCC;
+  font-weight: bold;
+  font-size: 2rem;
+}
+
+.infos h1{
+  color: #ffffff;
+  font-size: 1rem;
+  margin-bottom: 20px;
+}
+
+.infos .contato{
+  background-color: #00FFCC;
+  color: #1c1c1c;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  color: #1c1c1c;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.social{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  gap: 20px;
+  font-weight: 100;
+}
+
+.social .buttons{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.social .buttons img{
+  width: 30px;
+  height: 30px;
+}
+
+.cian-wave {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.cian-wave svg {
+  position: relative;
+  display: block;
+  width: calc(148% + 1.3px);
+  height: 191px;
+}
+
+.cian-wave .shape-fill {
+  fill: #00FFCC;
+}
+
+.about-me {
+  background-color: #1c1c1c;
+  width: 110%;
+}
+
+.about-me-wave {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.about-me-wave svg {
+  position: relative;
+  display: block;
+  width: calc(148% + 1.3px);
+  height: 191px;
+}
+
+.about-me-wave .shape-fill {
+  fill: #00FFCC;
+}
