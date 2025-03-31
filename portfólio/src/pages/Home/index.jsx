@@ -1,8 +1,20 @@
 import "./style.css";
-import profileImg from "../../assets/profile.png";
+import profileImg from "../../assets/profile1.png";
 import githubIcon from "../../assets/github.svg";
 import linkedinIcon from "../../assets/linkedin.svg";
 import instagramIcon from "../../assets/instagram.svg";
+import profile2 from "../../assets/profile2.png";
+import codeIcon from "../../assets/code.svg";
+import cognitivaIcon from "../../assets/cognitiva.png";
+import uniritterIcon from "../../assets/uniritter.png";
+import ilacIcon from "../../assets/ilac.png";
+import wizardIcon from "../../assets/wizard.png";
+import bradescoIcon from "../../assets/bradesco.png";
+import reactIcon from "../../assets/react.svg";
+import htmlIcon from "../../assets/html.svg";
+import cssIcon from "../../assets/css.svg";
+import javascriptIcon from "../../assets/js.svg";
+import pythonIcon from "../../assets/python.png";
 
 function Home() {
   return (
@@ -17,9 +29,27 @@ function Home() {
             <div className="social">
               <h1>Me encontre em</h1>
               <div className="buttons">
-                <img src={githubIcon} alt="" />
-                <img src={linkedinIcon} alt="" />
-                <img src={instagramIcon} alt="" />
+                <a
+                  href="https://github.com/FelipeAngeliAguiar"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img src={githubIcon} alt="GitHub" />
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/felipeangeliaguiar/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img src={linkedinIcon} alt="LinkedIn" />
+                </a>
+                <a
+                  href="https://www.instagram.com/felps.ksk/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img src={instagramIcon} alt="Instagram" />
+                </a>
               </div>
             </div>
           </div>
@@ -27,48 +57,109 @@ function Home() {
             <img src={profileImg} alt="Foto de perfil" />
           </div>
         </div>
-        <div class="cian-wave">
-          <svg
-            data-name="Layer 1"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 1200 120"
-            preserveAspectRatio="none"
-          >
-            <path
-              d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z"
-              class="shape-fill"
-            ></path>
-          </svg>
-        </div>
       </section>
       <section className="about-me">
-        <div class="about-me-wave">
-          <svg
-            data-name="Layer 1"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 1200 120"
-            preserveAspectRatio="none"
-          >
-            <path
-              d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z"
-              opacity=".25"
-              class="shape-fill"
-            ></path>
-            <path
-              d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z"
-              opacity=".5"
-              class="shape-fill"
-            ></path>
-            <path
-              d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z"
-              class="shape-fill"
-            ></path>
-          </svg>
+        <div className="about-me-div">
+          <img src={profile2} className="profile-about-me" />
+          <div className="about-me-infos">
+            <div className="about-me-text">
+              <h1>Sobre mim</h1>
+              <p>
+                Sou Felipe, um estudante de 19 anos apaixonado por tecnologia e
+                programação. Tenho experiência em linguagens como Python, Java,
+                JavaScript e HTML, além de fluência em inglês avançado. Estou em
+                busca de novas oportunidades para expandir meu conhecimento e
+                crescer profissionalmente nessa área fascinante.
+              </p>
+            </div>
+            <div className="skills">
+              <h1>Habilidades em</h1>
+              <div className="skills-list">
+                <div className="skills-cards-row">
+                  <div className="skills-cards">
+                    <img src={javascriptIcon} alt="" />
+                    Javascript
+                  </div>
+                  <div className="skills-cards">
+                    <img src={htmlIcon} alt="" />
+                    HTML
+                  </div>
+                  <div className="skills-cards">
+                    <img src={cssIcon} alt="" />
+                    CSS
+                  </div>
+                </div>
+                <div className="skills-cards-row">
+                  <div className="skills-cards">
+                    <img src={reactIcon} alt="" />
+                    React
+                  </div>
+                  <div className="skills-cards">
+                    <img src={pythonIcon} alt="" />
+                    Python
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
-      <section className="projects">Projetos</section>
-      <section className="experiences">Experiência</section>
-      <section className="education">Educação</section>
+      <section className="projects">
+        <div className="projects-div">
+          <div className="card">
+            <h1>Projetos</h1>
+            <div>
+              <img src={codeIcon} alt="" />
+              <h2>GaneshIA</h2>
+            </div>
+            <div>
+              <p>
+                Uma IA feita para fazer Compras e Vendas automaticas no Mercado
+                de Ações
+              </p>
+            </div>
+          </div>
+          <div className="card">
+            <h1>Experiências</h1>
+            <div>
+              <img src={cognitivaIcon} alt="" />
+              <h2>Cognitiva Brasil</h2>
+            </div>
+            <p>
+              Estagiário em Desenvolvimento de Software, onde trabalhei com
+              Python e JavaScript, desenvolvendo soluções inovadoras para
+              clientes.
+            </p>
+          </div>
+        </div>
+      </section>
+      <section className="education">
+        <div className="education-div">
+          <span>Educação</span>
+        </div>
+        <table className="table-education">
+          <div className="table-row">
+            <card className="card-education">
+              <img src={bradescoIcon} alt="" />
+              <h1>Colégio Fundação Bradesco</h1>
+            </card>
+            <card className="card-education">
+              <img src={wizardIcon} alt="" />
+              <h1>Wizard by Pearson</h1>
+            </card>
+          </div>
+          <div className="table-row">
+            <card className="card-education">
+              <img src={ilacIcon} alt="" />
+              <h1>ILAC</h1>
+            </card>
+            <card className="card-education">
+              <img src={uniritterIcon} alt="" />
+              <h1>Uniritter</h1>
+            </card>
+          </div>
+        </table>
+      </section>
     </div>
   );
 }

@@ -5,7 +5,11 @@
 }
 
 body {
-  background: #0b0b0b;
-  font-family: 'Roboto', sans-serif;
+  background-image: url("assets/bbg.png");
+  background-size: cover; 
+  background-repeat: repeat; 
+  background-color: #313131; 
+  height: 100vh; 
+  margin: 0; 
 }
 

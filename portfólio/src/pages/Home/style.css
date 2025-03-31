@@ -1,58 +1,60 @@
 .content {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 80%;
-  margin: 0 auto;
+  width: 70%;
+  margin: 20px auto;
   padding: 20px;
   background-color: #1c1c1c;
   border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  transition: transform 0.3s;
 }
 
 section {
-  position: relative;
-  display: flex;
-  align-items: center;
   min-height: 400px;
-  padding: 70px 20vw;
+  padding: 20px 0;
+  width: 100%;
+}
+
+.home {
+  padding: 0 40px;
 }
 
 .home-div {
   display: flex;
-  justify-content: center;
-  flex-direction: row;
+  justify-content: space-between;
   align-items: center;
+  flex-direction: row;
+  margin-top: 20px;
+  padding: 0 40px;
 }
 
-.home-div .infos{
+
+.infos {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
+  gap: 2px;
 }
 
-.infos p{
+.infos p {
   color: #ffffff;
   font-size: 1.2rem;
   margin: 10px 0;
 }
 
-.infos span{
+.infos span {
   color: #00FFCC;
   font-weight: bold;
   font-size: 2rem;
 }
 
-.infos h1{
+.infos h1 {
   color: #ffffff;
   font-size: 1rem;
   margin-bottom: 20px;
 }
 
-.infos .contato{
+.infos .contato {
   background-color: #00FFCC;
   color: #1c1c1c;
   border: none;
@@ -64,7 +66,7 @@ section {
   font-size: 1rem;
 }
 
-.social{
+.social {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -73,59 +75,259 @@ section {
   font-weight: 100;
 }
 
-.social .buttons{
+.social .buttons {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 20px;
 }
 
-.social .buttons img{
+.social .buttons img {
   width: 30px;
   height: 30px;
+  cursor: pointer;
+  transition: filter 0.3s ease-in-out;
 }
 
-.cian-wave {
-  position: absolute;
-  bottom: 0;
-  left: 0;
+.social .buttons img:hover {
+  opacity: 50%;
+}
+
+.profile {
+  margin: 20px;
+  border-radius: 10px;
+  box-shadow: #00FFCC 0px 0px 10px;
+
+}
+
+.about-me-div {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-direction: row;
+  margin-top: 20px;
+  padding: 0 40px;
+}
+
+.profile-about-me {
+  transform: scaleX(-1);
+  width: 40%;
+  height: 100%;
+  border-radius: 10px;
+  margin: 10px;
+  box-shadow: #00FFCC 0px 0px 10px;
+}
+
+.about-me-infos {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  flex-direction: column;
+  width: 80%;
+  height: 100%;
+}
+
+.about-me-div h1 {
+  color: #00FFCC
+}
+
+.about-me-div p {
+  color: #ffffff;
+  margin: 10px 0;
+}
+
+.skills{
+  background-color: #0f0f0f;
   width: 100%;
+  height: 200px;
+  padding: 20px;
+  border-radius: 20px;
   overflow: hidden;
-  line-height: 0;
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  flex-direction: column;
 }
 
-.cian-wave svg {
-  position: relative;
-  display: block;
-  width: calc(148% + 1.3px);
-  height: 191px;
+.skills h1{
+  font-size: 1rem;
+  color: #fff;
+  overflow: hidden;
 }
 
-.cian-wave .shape-fill {
-  fill: #00FFCC;
-}
-
-.about-me {
-  background-color: #1c1c1c;
-  width: 110%;
-}
-
-.about-me-wave {
-  position: absolute;
-  top: 0;
-  left: 0;
+.skills-list{
+  display: flex;
   width: 100%;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.skills-cards{
+  background-color: #303030;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  width: 100%;
+  height: 40px;
+  gap: 5px;
+  border-radius: 10px;
+  margin-top: 20px;
+}
+
+.skills-cards-row{
+  display: flex;
+  width: 100%;
+  justify-content: start;
+  align-items: center;
+  flex-direction: row;
+  gap: 10px;
   overflow: hidden;
-  line-height: 0;
+}
+.skills-cards img{
+  width: auto;
+  height: 100%;
+  padding: 10px;
+  border-radius: 10px;
 }
 
-.about-me-wave svg {
-  position: relative;
-  display: block;
-  width: calc(148% + 1.3px);
-  height: 191px;
+.projects {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 20px;
+  height: auto;
 }
 
-.about-me-wave .shape-fill {
-  fill: #00FFCC;
+.projects-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  gap: 100px;
+  padding: 0px 80px;
 }
+
+.projects-div .card {
+  background-color: #303030;
+  border-radius: 10px;
+  padding: 20px;
+  width: 400px;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 40px;
+  align-items: center;
+  overflow: hidden;
+  overflow-y: auto;
+}
+
+.card div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.card img {
+  height: 80px;
+  border-radius: 10px;
+
+}
+
+.card h1 {
+  color: #00FFCC;
+  margin: 10px 0;
+  font-size: 2rem;
+  overflow: hidden;
+}
+
+.card h2 {
+  color: #ffffff;
+  margin: 10px 0;
+  font-size: 1.2rem;
+  text-align: center;
+  line-height: 1.5;
+  overflow: hidden;
+  padding-top: 10px;
+}
+
+.card p {
+  color: #ffffff;
+  margin: 10px 0;
+  font-size: 0.8rem;
+  text-align: center;
+  line-height: 1.5;
+  overflow: hidden;
+}
+
+.education {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 20px;
+}
+
+.education-div{
+  color: #00FFCC;
+  font-weight: bold;
+  font-size: 3rem;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: row;
+  padding-left: 80px;
+  width: 100%;
+}
+
+.table-education {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 20px;
+  gap: 20px;
+  padding: 0px 80px;
+}
+
+.table-row{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  gap: 100px;
+  padding: 0px 80px;
+}
+
+.card-education {
+  background-color: #303030;
+  border-radius: 10px;
+  padding: 20px;
+  width: 500px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 40px;
+  align-items: center;
+  overflow: hidden;
+}
+
+.card-education h1 {
+  color: #ffffff;
+  margin: 10px 0;
+  font-size: 1.5rem;
+  overflow: hidden;
+}
+
+.card-education img{
+  height: 100px;
+  width: 100px;
+  padding: auto;
+}
+
