@@ -15,17 +15,105 @@ import htmlIcon from "../../assets/html.svg";
 import cssIcon from "../../assets/css.svg";
 import javascriptIcon from "../../assets/js.svg";
 import pythonIcon from "../../assets/python.png";
+import locationIcon from "../../assets/location.svg";
+import clockIcon from "../../assets/time.svg";
+import certificateIcon from "../../assets/certificate.svg";
+import { useState } from "react";
+import { useEffect } from "react";
+import ScrollReveal from "scrollreveal";
+
+function EducationCard({ image, name, time, place, cert }) {
+  const [hover, setHover] = useState(false);
+
+  return (
+    <div
+      className="card-education card-effect"
+      onMouseEnter={() => setHover(true)}
+      onMouseLeave={() => setHover(false)}
+    >
+      {hover ? (
+        <div className="education-info">
+          <div>
+            <img src={clockIcon} alt="" /> <h1>
+            {time}
+            </h1>
+          </div>
+          <div>
+            <img src={locationIcon} alt="" /> <h1>
+              {place}
+            </h1>
+          </div>
+          <div>
+            <img src={certificateIcon} alt="" /> <h1>
+              {cert}
+            </h1>
+          </div>
+        </div>
+      ) : (
+        <div className="education-default">
+          <img src={image} alt={name} />
+          <h1>{name}</h1>
+        </div>
+      )}
+    </div>
+  );
+}
 
 function Home() {
+  useEffect(() => {
+    const sr = ScrollReveal({ reset: true });
+
+    sr.reveal(".infos-effect", {
+      duration: 2000,
+      origin: "top",
+      distance: "100px",
+    });
+
+    sr.reveal(".profile-effect", {
+      duration: 2000,
+      origin: "top",
+      distance: "100px",
+    });
+
+    sr.reveal(".profile2-effect", {
+      duration: 2000,
+      origin: "left",
+      distance: "100px",
+    });
+
+    sr.reveal(".about-me-effect", {
+      duration: 2000,
+      origin: "right",
+      distance: "100px",
+    });
+
+    sr.reveal(".card-effect", {
+      duration: 2000,
+      origin: "bottom",
+      distance: "100px",
+    });
+
+    sr.reveal(".project-effect", {
+      duration: 2000,
+      origin: "left",
+      distance: "100px",
+    });
+
+    sr.reveal(".exp-effect", {
+      duration: 2000,
+      origin: "right",
+      distance: "100px",
+    });
+  }, []);
   return (
     <div className="content">
       <section className="home">
         <div className="home-div">
-          <div className="infos">
+          <div className="infos infos-effect">
             <p>Olá, eu sou</p>
-            <span>Felipe Angeli Cardoso de Aguiar</span>
+            <span>Felipe Angeli</span>
             <h1>Desenvolvedor Python</h1>
-            <button className="contato">Contato</button>
+
             <div className="social">
               <h1>Me encontre em</h1>
               <div className="buttons">
@@ -53,15 +141,15 @@ function Home() {
               </div>
             </div>
           </div>
-          <div className="profile">
+          <div className="profile profile-effect">
             <img src={profileImg} alt="Foto de perfil" />
           </div>
         </div>
       </section>
       <section className="about-me">
         <div className="about-me-div">
-          <img src={profile2} className="profile-about-me" />
-          <div className="about-me-infos">
+          <img src={profile2} className="profile-about-me profile2-effect" />
+          <div className="about-me-infos about-me-effect">
             <div className="about-me-text">
               <h1>Sobre mim</h1>
               <p>
@@ -72,8 +160,9 @@ function Home() {
                 crescer profissionalmente nessa área fascinante.
               </p>
             </div>
+
             <div className="skills">
-              <h1>Habilidades em</h1>
+              <h1>Habilidades</h1>
               <div className="skills-list">
                 <div className="skills-cards-row">
                   <div className="skills-cards">
@@ -106,7 +195,7 @@ function Home() {
       </section>
       <section className="projects">
         <div className="projects-div">
-          <div className="card">
+          <div className="card project-effect">
             <h1>Projetos</h1>
             <div>
               <img src={codeIcon} alt="" />
@@ -119,7 +208,7 @@ function Home() {
               </p>
             </div>
           </div>
-          <div className="card">
+          <div className="card exp-effect">
             <h1>Experiências</h1>
             <div>
               <img src={cognitivaIcon} alt="" />
@@ -127,38 +216,49 @@ function Home() {
             </div>
             <p>
               Estagiário em Desenvolvimento de Software, onde trabalhei com
-              Python e JavaScript, desenvolvendo soluções inovadoras para
-              clientes.
+              Python e JavaScript
             </p>
           </div>
         </div>
       </section>
       <section className="education">
-        <div className="education-div">
+        <div className="education-div profile2-effect">
           <span>Educação</span>
         </div>
-        <table className="table-education">
+        <div className="table-education">
           <div className="table-row">
-            <card className="card-education">
-              <img src={bradescoIcon} alt="" />
-              <h1>Colégio Fundação Bradesco</h1>
-            </card>
-            <card className="card-education">
-              <img src={wizardIcon} alt="" />
-              <h1>Wizard by Pearson</h1>
-            </card>
+            <EducationCard
+              image={bradescoIcon}
+              name="Colégio Fundação Bradesco"
+              time="2009 - 2023"
+              place="Gravataí - Brasil"
+              cert="Ensino Médio Completo"
+            />
+            <EducationCard
+              image={wizardIcon}
+              name="Wizard by Pearson"
+              time="2017 - 2023"
+              place="Gravataí - Brasil"
+              cert="Inglês Intermediário"
+            />
           </div>
           <div className="table-row">
-            <card className="card-education">
-              <img src={ilacIcon} alt="" />
-              <h1>ILAC</h1>
-            </card>
-            <card className="card-education">
-              <img src={uniritterIcon} alt="" />
-              <h1>Uniritter</h1>
-            </card>
+            <EducationCard
+              image={ilacIcon}
+              name="ILAC"
+              time="2024"
+              place="Toronto - Canadá"
+              cert="Inglês Avançado"
+            />
+            <EducationCard
+              image={uniritterIcon}
+              name="Uniritter"
+              time="2024 - Cursando"
+              place="Gravataí - Brasil"
+              cert="Bacharelado Ciência da Computação"
+            />
           </div>
-        </table>
+        </div>
       </section>
     </div>
   );
