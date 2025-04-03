@@ -234,7 +234,7 @@ section {
   border-radius: 10px;
   padding: 20px;
   width: 300px;
-  height: auto;
+  height: 400px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -259,6 +259,7 @@ section {
 .projects-div .card h1 {
   color: var(--quaternary-color);
   margin: 10px 0;
+  overflow: hidden;
   font-size: 2rem;
 }
 
@@ -266,12 +267,14 @@ section {
   color: var(--quinary-color);
   font-size: 1.2rem;
   line-height: 1.5;
+  overflow: hidden;
 }
 
 .projects-div .card p {
   color: var(--quinary-color);
   font-size: 0.9rem;
   line-height: 1.5;
+  overflow: hidden;
 }
 
 .projects-div .card:hover {
