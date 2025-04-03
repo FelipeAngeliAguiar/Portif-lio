@@ -1,9 +1,9 @@
 {
+  "homepage": "https://FelipeAngeliAguiar.github.io/Portifilio",
   "name": "portfolio",
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://FelipeAngeliAguiar.github.io/Portif-lio",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
