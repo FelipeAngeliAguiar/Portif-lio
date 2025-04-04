@@ -196,9 +196,9 @@ section {
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 15px; 
-  min-width: 220px; 
-  max-width: 280px; 
+  gap: 15px;
+  min-width: 220px;
+  max-width: 280px;
 }
 
 .skills-card img {
@@ -226,7 +226,8 @@ section {
   flex-wrap: wrap;
   width: 100%;
   gap: 30px;
-  padding: 40px 20px; /* Adiciona um padding maior para evitar cortes */
+  padding: 40px 20px;
+  /* Adiciona um padding maior para evitar cortes */
 }
 
 .projects-div .card {
@@ -241,7 +242,8 @@ section {
   align-items: center;
   gap: 10px;
   text-align: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Suaviza a transição */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  /* Suaviza a transição */
 }
 
 .projects-div .card div {
@@ -291,7 +293,8 @@ section {
   flex-direction: column;
   margin-top: 20px;
   width: 100%;
-  overflow-x: hidden; /* Evita scroll horizontal */
+  overflow-x: hidden;
+  /* Evita scroll horizontal */
 }
 
 .education-div {
@@ -372,6 +375,7 @@ section {
   flex-direction: column;
   transition: opacity 0.3s ease-in-out;
   overflow: hidden;
+  text-align: left;
 
   div {
     display: flex;
@@ -431,7 +435,7 @@ section {
 .lang-btn {
   display: flex;
   align-items: center;
-  background-color: var(--secondary-color);
+  background-color: var(--primary-color);
   color: var(--quinary-color);
   border: none;
   padding: 10px 15px;
@@ -456,11 +460,11 @@ section {
   position: fixed;
   bottom: 70px;
   width: 110px;
-  background-color: var(--secondary-color);
+  background-color: var(--primary-color);
   border-radius: 10px;
   display: flex;
   flex-direction: column;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Garante que o dropdown esteja sempre acima */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 .lang-dropdown button {
@@ -484,29 +488,33 @@ section {
     flex-direction: column;
   }
 
-  .infos{
+  .infos {
     align-items: center;
+    text-align: center;
   }
 
-  .profile{
+  .profile {
     width: 50%;
   }
 
-  .about-me-div{
+  .about-me-div {
     flex-direction: column-reverse;
     width: 100%;
   }
 
-  .about-me-text{
+  .about-me-text {
+    align-items: center;
+    text-align: center;
+  }
+
+  .profile-about-me {
+    width: 50%;
+  }
+
+  .skills {
     align-items: center;
   }
 
-  .profile-about-me{
-    width: 50%;
-  }
-  .skills{
-    align-items: center;
-  }
   .skills-list {
     display: flex;
     flex-direction: column;
@@ -515,18 +523,19 @@ section {
   }
 
   .skills-card {
-    flex-direction: column; 
+    flex-direction: column;
     align-items: center;
     text-align: center;
-    width: 100%; 
+    width: 100%;
   }
+
   .projects-div {
     flex-direction: column;
     align-items: center;
   }
 
   .projects-div .card {
-    width: 90%; 
+    width: 90%;
   }
 
   .table-row {
@@ -534,4 +543,178 @@ section {
     align-items: center;
   }
 
+}
+
+@media screen and (max-width: 700px) {
+
+  .content {
+    width: 90%;
+    padding: 10px;
+  }
+
+  .home-div {
+    width: 100%;
+    flex-direction: column;
+
+    p {
+      font-size: 1.5rem;
+    }
+
+    span {
+      font-size: 3rem;
+    }
+
+    h1 {
+      font-size: 0.8rem;
+    }
+  }
+
+  .social {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .social .buttons img {
+    width: 20px;
+    height: 20px;
+  }
+
+  .infos {
+    align-items: center;
+    text-align: center;
+  }
+
+  .profile {
+    width: 80%;
+  }
+
+  .about-me-div {
+    flex-direction: column-reverse;
+    width: 100%;
+  }
+
+  .about-me-text {
+    align-items: center;
+    text-align: center;
+  }
+
+  .profile-about-me {
+    width: 80%;
+  }
+
+  .skills {
+    align-items: center;
+  }
+
+  .skills-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
+  .skills-card {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+  }
+
+  .projects-div {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .projects-div .card {
+    width: 90%;
+  }
+
+  .education-div {
+    font-size: 1.3rem;
+    padding: 0 20px;
+  }
+
+  .table-education {
+    width: 100%;
+  }
+
+  .table-row {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .education-default {
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .card-education {
+    width: 100%;
+    min-height: 200px;
+    padding: 10px;
+    margin: 10px 0;
+    text-align: left;
+
+    img {
+      height: 50px;
+      width: 50px;
+    }
+
+    h1 {
+      font-size: 0.8rem;
+    }
+  }
+
+  .education-info {
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    text-align: flex-start;
+    padding: 10px 0;
+
+    img {
+      height: 25px;
+      width: 25px;
+    }
+  }
+
+  .language-switcher {
+    bottom: 10px;
+    left: 10px;
+
+    span {
+      font-size: 0.25rem;
+    }
+
+    img {
+      width: 10px;
+      height: 10px;
+    }
+  }
+
+  .lang-btn {
+    padding: 5px 10px;
+    width: 60px;
+    height: 30px;
+  }
+
+  .lang-dropdown {
+    width: 60px;
+    justify-content: center;
+    align-items: center;
+    bottom: 45px;
+    left: 10px;
+    height: 50px;
+  }
+
+  .lang-dropdown button {
+    padding: 5px;
+    width: 60px;
+    height: 30px;
+    font-size: 0.5rem;
+  }
 }
