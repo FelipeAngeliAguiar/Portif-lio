@@ -41,6 +41,7 @@ section {
   justify-content: space-between;
   align-items: flex-start;
   gap: 2px;
+  overflow-x: visible;
 
   p {
     color: var(--quinary-color);
@@ -99,6 +100,68 @@ section {
   height: 30px;
   cursor: pointer;
   transition: filter 0.3s ease-in-out;
+}
+
+.social .buttons button {
+  position: relative;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.email-popup {
+  position: absolute;
+  bottom: 50px;
+  right: -100px;
+  background-color: var(--primary-color);
+  border: var(--quaternary-color) 2px solid;
+  border-radius: 10px;
+  z-index: 999;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+
+  span {
+    color: var(--quinary-color);
+    font-size: 1rem;
+    font-weight: bold;
+  }
+
+}
+
+.copy-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--primary-color);
+  color: var(--primary-color);
+  border: none;
+  padding: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: bold;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background-color: var(--tertiary-color);
+    color: var(--primary-color);
+    opacity: 0.8;
+  }
+
+  &:active {
+    transform: scale(0.95);
+    transition: transform 0.1s ease;
+
+  }
+
+  img {
+    width: 20px;
+    height: 20px;
+  }
 }
 
 .social .buttons img:hover {
@@ -211,7 +274,6 @@ section {
   font-weight: bold;
 }
 
-
 .projects {
   display: flex;
   justify-content: center;
@@ -223,11 +285,10 @@ section {
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-wrap: wrap;
   width: 100%;
-  gap: 30px;
   padding: 40px 20px;
-  /* Adiciona um padding maior para evitar cortes */
+  gap: 30px;
+  flex-wrap: nowrap;
 }
 
 .projects-div .card {
@@ -236,14 +297,134 @@ section {
   padding: 20px;
   width: 300px;
   height: 400px;
+  transition: all 0.5s ease;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  text-align: center;
+  cursor: pointer;
+  position: relative;
+}
+
+.projects-div .card.expanded {
+  gap: 20px;
+  width: 80%;
+  height: 400px;
+  margin: 30px;
+  align-items: flex-start;
+  padding: 30px;
+  z-index: 10;
+  display: flex;
+  flex-direction: row;
+}
+
+.projects-div .card.expanded .card-header {
+  display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.projects-div .card.expanded .card-details {
+  overflow-y: auto;
+  max-height: 320px;
+  padding: 10px;
+  padding-right: 10px;
+  text-align: left;
+  flex: 1;
+}
+
+.projects-div .card.expanded .card-details a {
+  background-color: var(--secondary-color);
+  color: var(--quaternary-color);
+  text-decoration: none;
+  padding: 10px 20px;
+  margin-top: 10px;
+  display: inline-block;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.projects-div .card.expanded .card-details h3 {
+  color: var(--quinary-color);
+  font-size: 1.5rem;
+  margin: 0px;
+  overflow: hidden;
+}
+
+.card-details p {
+  white-space: pre-line;
+  margin-bottom: 20px;
+}
+
+.projects-div .card.compressed {
+  width: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 400px;
+  padding: 10px;
+  opacity: 0.6;
+}
+
+.projects-div .card.compressed h1 {
+  display: none;
+}
+
+.card-details.scrollable {
+  max-height: 300px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--quaternary-color) transparent;
+}
+
+.card-details.scrollable::-webkit-scrollbar {
+  width: 8px;
+}
+
+.card-details.scrollable::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.card-details.scrollable::-webkit-scrollbar-thumb {
+  background-color: var(--quaternary-color);
+  border-radius: 10px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
   gap: 10px;
-  text-align: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  /* Suaviza a transição */
+}
+
+.card-header img {
+  height: 60px;
+  border-radius: 10px;
+}
+
+.card-details {
+  margin-top: 15px;
+  color: var(--quinary-color);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  animation: fadeIn 0.4s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .projects-div .card div {
@@ -263,6 +444,7 @@ section {
   margin: 10px 0;
   overflow: hidden;
   font-size: 2rem;
+  height: 55px;
 }
 
 .projects-div .card h2 {
@@ -276,14 +458,24 @@ section {
   color: var(--quinary-color);
   font-size: 0.9rem;
   line-height: 1.5;
+  max-height: 120px;
   overflow: hidden;
+  transition: all 0.5s ease;
+}
+
+.projects-div .card.expanded p {
+  max-height: none;
+  overflow: visible;
 }
 
 .projects-div .card:hover {
   box-shadow: 0px 0px 15px var(--quaternary-color);
-  opacity: 0.8;
   transform: scale(1.05);
   cursor: pointer;
+}
+
+.projects-div .card .expanded :hover {
+  box-shadow: 0px 0px 15px var(--quaternary-color);
 }
 
 .education {
@@ -294,7 +486,6 @@ section {
   margin-top: 20px;
   width: 100%;
   overflow-x: hidden;
-  /* Evita scroll horizontal */
 }
 
 .education-div {
@@ -481,8 +672,7 @@ section {
   background-color: var(--quaternary-color);
 }
 
-
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 1400px) {
   .home-div {
     width: 100%;
     flex-direction: column;
@@ -531,17 +721,19 @@ section {
 
   .projects-div {
     flex-direction: column;
-    align-items: center;
+    width: 100%;
   }
 
   .projects-div .card {
-    width: 90%;
+    flex: 1;
+    max-width: 600px;
   }
 
   .table-row {
     flex-direction: column;
     align-items: center;
   }
+
 
 }
 
@@ -717,4 +909,9 @@ section {
     height: 30px;
     font-size: 0.5rem;
   }
-}
+
+  .email-popup{
+    visibility: hidden;
+    }
+  }
+

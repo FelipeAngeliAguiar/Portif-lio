@@ -2,7 +2,7 @@ import "./style.css";
 import profileImg from "../../assets/profile1.png";
 import githubIcon from "../../assets/github.svg";
 import linkedinIcon from "../../assets/linkedin.svg";
-import instagramIcon from "../../assets/instagram.svg";
+import gmailIcon from "../../assets/google-brands.svg";
 import profile2 from "../../assets/profile2.png";
 import codeIcon from "../../assets/code.svg";
 import cognitivaIcon from "../../assets/cognitiva.png";
@@ -19,9 +19,10 @@ import locationIcon from "../../assets/location.svg";
 import clockIcon from "../../assets/time.svg";
 import certificateIcon from "../../assets/certificate.svg";
 import langIcon from "../../assets/language.svg";
-import { useState } from "react";
-import { useEffect } from "react";
+import copyIcon from "../../assets/copy-solid.svg";
+import { useState, useEffect, useRef } from "react";
 import ScrollReveal from "scrollreveal";
+import { div } from "framer-motion/client";
 
 function LanguageSwitcher() {
   const [language, setLanguage] = useState(
@@ -137,6 +138,63 @@ function Home() {
       distance: "100px",
     });
   }, []);
+
+  const [showEmail, setShowEmail] = useState(false);
+  const emailRef = useRef(null);
+
+  const copyEmail = () => {
+    navigator.clipboard.writeText("felipeangeliaguiar@gmail.com");
+    alert(
+      language === "pt"
+        ? "Email copiado com sucesso!"
+        : "Email copied successfully!"
+    );
+  };
+
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (emailRef.current && !emailRef.current.contains(event.target)) {
+        setShowEmail(false);
+      }
+    }
+
+    if (showEmail) {
+      document.addEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [showEmail]);
+
+  const [expandedCard, setExpandedCard] = useState(null);
+  const cardsRef = useRef([]);
+
+  const toggleExpand = (index) => {
+    setExpandedCard(expandedCard === index ? null : index);
+  };
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (cardsRef.current.every((ref) => ref && !ref.contains(event.target))) {
+        setExpandedCard(null);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
+  const handleEmailClick = () => {
+    if (window.innerWidth <= 768) {
+      navigator.clipboard.writeText("felipeangeliaguiar@gmail.com");
+
+      alert(language === "pt" ? "Email copiado!" : "Email copied!");
+    } else {
+      setShowEmail(!showEmail);
+    }
+  };
+
   return (
     <div className="content">
       <LanguageSwitcher />
@@ -146,7 +204,9 @@ function Home() {
             <p>{language === "pt" ? "Olá, eu sou" : "Hello, I am"}</p>
             <span>Felipe Angeli</span>
             <h1>
-              {language === "pt" ? "Desenvolvedor Python" : "Python Developer"}
+              {language === "pt"
+                ? "Engenheiro de Software"
+                : "Software Engineer"}
             </h1>
 
             <div className="social">
@@ -166,14 +226,19 @@ function Home() {
                 >
                   <img src={linkedinIcon} alt="LinkedIn" />
                 </a>
-                <a
-                  href="https://www.instagram.com/felps.ksk/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <img src={instagramIcon} alt="Instagram" />
-                </a>
+                <button onClick={handleEmailClick} className="email-button">
+                  <img src={gmailIcon} alt="Gmail" />
+                </button>
               </div>
+
+              {showEmail && (
+                <div className="email-popup" ref={emailRef}>
+                  <span>felipeangeliaguiar@gmail.com</span>
+                  <button onClick={copyEmail} className="copy-button">
+                    <img src={copyIcon} />
+                  </button>
+                </div>
+              )}
             </div>
           </div>
           <div className="profile profile-effect">
@@ -216,32 +281,107 @@ function Home() {
       </section>
       <section className="projects">
         <div className="projects-div">
-          <div className="card project-effect">
-            <h1>{language === "pt" ? "Projetos" : "Projects"}</h1>
-            <div>
-              <img src={codeIcon} alt="" />
-              <h2>GaneshIA</h2>
-            </div>
-            <div>
-              <p>
-                {language === "pt"
-                  ? "Uma IA feita para fazer Compras e Vendas automáticas no Mercado de Ações, automaticamente, usando prioritariamente a linguagem Python."
-                  : "An AI designed to automatically buy and sell in the stock market, primarily using the Python language."}
-              </p>
-            </div>
-          </div>
-          <div className="card exp-effect">
-            <h1>{language === "pt" ? "Experiências" : "Experiences"}</h1>
-            <div>
-              <img src={cognitivaIcon} alt="" />
-              <h2>Cognitiva Brasil</h2>
-            </div>
-            <p>
-              {language === "pt"
-                ? "Estagiário em Desenvolvimento de Software, onde trabalhei com Python, HTML, CSS, JavaScript, SQL, Banco de Dados, React."
-                : "Software Development Intern, where I worked with Python, HTML, CSS, JavaScript, SQL, Databases, and React."}
-            </p>
-          </div>
+          {[
+            {
+              h1: language === "pt" ? "Projetos" : "Projects",
+              title: "GaneshIA",
+              summary:
+                language === "pt"
+                  ? "Um software de automação de compras e vendas no mercado de ações, baseado em IA."
+                  : "AI-powered stock trading automation software.",
+              details:
+                language === "pt"
+                  ? [
+                      "Desenvolvido com Python, integrando a biblioteca MetaTrader5 para execução de ordens no mercado em tempo real.",
+                      "Implementação de lógica de tomada de decisão baseada em ChatGPT para interpretar sinais e recomendações de mercado.",
+                      "Uso de análise técnica com indicadores como RSI, MACD e médias móveis para definir pontos de entrada e saída.",
+                      "Backtesting de estratégias com histórico de dados para validação de performance.",
+                      "Arquitetura modular com integração a banco de dados para registro de operações e logs.",
+                      "Conexão a APIs de corretoras para leitura de cotações em tempo real.",
+                    ]
+                  : [
+                      "Built using Python, integrating MetaTrader5 for real-time order execution.",
+                      "Decision-making logic powered by ChatGPT for interpreting market signals and recommendations.",
+                      "Technical analysis using indicators such as RSI, MACD, and moving averages.",
+                      "Strategy backtesting with historical data for performance validation.",
+                      "Modular architecture with database integration for operation logs and state tracking.",
+                      "Connected to brokerage APIs for real-time stock price monitoring.",
+                    ],
+              link: "https://github.com/FelipeAngeliAguiar/GaneshIA",
+              linkText: language === "pt" ? "Ver no GitHub" : "View on GitHub",
+              icon: codeIcon,
+            },
+            {
+              h1: language === "pt" ? "Experiência" : "Experience",
+              title: "Cognitiva Brasil",
+              summary:
+                language === "pt"
+                  ? "Estagiário em Desenvolvimento de Software"
+                  : "Software Development Intern",
+              details:
+                language === "pt"
+                  ? [
+                      "Desenvolvi sistemas e ferramentas internas utilizando Python, React e SQL.",
+                      "Atuei na criação de soluções terceirizadas para clientes da empresa, com foco em automação de processos e eficiência operacional.",
+                      "Contribuí em projetos colaborativos com equipes de desenvolvimento, incluindo um projeto em equipe de maior escala.",
+                    ]
+                  : [
+                      "Developed internal systems and tools using Python, React, and SQL.",
+                      "Worked on outsourced software solutions for company clients, focusing on process automation and operational efficiency.",
+                      "Collaborated on multiple development projects, including a larger-scale team-based project.",
+                    ],
+              link: "https://www.linkedin.com/company/cognitiva-brasil/",
+              linkText:
+                language === "pt" ? "Ver no LinkedIn" : "View on LinkedIn",
+              icon: cognitivaIcon,
+            },
+          ].map((proj, index) => {
+            const isExpanded = expandedCard === index;
+            const isCompressed =
+              expandedCard !== null && expandedCard !== index;
+
+            return (
+              <div
+                key={index}
+                ref={(el) => (cardsRef.current[index] = el)}
+                className={`card ${isExpanded ? "expanded" : ""} ${
+                  isCompressed ? "compressed" : ""
+                } ${
+                  proj.title === "GaneshIA" ? "project-effect" : "exp-effect"
+                }`}
+                onClick={() => toggleExpand(index)}
+              >
+                <div className="card-header">
+                  {!isCompressed && <h1>{proj.h1}</h1>}
+                  <img src={proj.icon} alt="" />
+                  <h2>{proj.title}</h2>
+                </div>
+
+                {!isCompressed && !isExpanded && <p>{proj.summary}</p>}
+
+                {isExpanded && (
+                  <div className="card-details scrollable">
+                    <ul>
+                      {proj.details.map((item, i) => (
+                        <li key={i}>{item}</li>
+                      ))}
+                      <li>
+                        <h3>
+                          <a
+                            href={proj.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            {proj.linkText}
+                          </a>
+                        </h3>
+                      </li>
+                    </ul>
+                  </div>
+                )}
+              </div>
+            );
+          })}
         </div>
       </section>
       <section className="education">
@@ -251,16 +391,25 @@ function Home() {
         <div className="table-education">
           <div className="table-row">
             <EducationCard
-              image={bradescoIcon}
-              name="Colégio Fundação Bradesco"
-              time="2009 - 2023"
+              image={uniritterIcon}
+              name="Uniritter"
+              time={language === "pt" ? "2024 - Cursando" : "2024 - Ongoing"}
               place="Gravataí - Brasil"
               cert={
                 language === "pt"
-                  ? "Ensino Médio Completo"
-                  : "High School Diploma"
+                  ? "Bacharelado Ciência da Computação"
+                  : "Bachelor's in Computer Science"
               }
             />
+            <EducationCard
+              image={ilacIcon}
+              name="ILAC"
+              time="2024"
+              place="Toronto - Canadá"
+              cert={language === "pt" ? "Inglês Avançado" : "Advanced English"}
+            />
+          </div>
+          <div className="table-row">
             <EducationCard
               image={wizardIcon}
               name="Wizard by Pearson"
@@ -270,26 +419,6 @@ function Home() {
                 language === "pt"
                   ? "Inglês Intermediário"
                   : "Intermediate English"
-              }
-            />
-          </div>
-          <div className="table-row">
-            <EducationCard
-              image={ilacIcon}
-              name="ILAC"
-              time="2024"
-              place="Toronto - Canadá"
-              cert={language === "pt" ? "Inglês Avançado" : "Advanced English"}
-            />
-            <EducationCard
-              image={uniritterIcon}
-              name="Uniritter"
-              time={language === "pt" ? "2024 - Cursando" : "2024 - Ongoing"}
-              place="Gravataí - Brasil"
-              cert={
-                language === "pt"
-                  ? "Bacharelado Ciência da Computação"
-                  : "Bachelor's in Computer Science"
               }
             />
           </div>
