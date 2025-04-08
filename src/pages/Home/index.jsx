@@ -186,7 +186,7 @@ function Home() {
   }, []);
 
   const handleEmailClick = () => {
-    if (window.innerWidth <= 768) {
+    if (window.innerWidth <= 1000) {
       navigator.clipboard.writeText("felipeangeliaguiar@gmail.com");
 
       alert(language === "pt" ? "Email copiado!" : "Email copied!");
